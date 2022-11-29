@@ -1,0 +1,82 @@
+$ vw -d /data-fast/congresstweets/data_2017-2021 -f model.vw --bit_precision 28 --quadratic :: --loss_function=logistic --binary
+creating quadratic features for pairs: ::
+WARNING: duplicate namespace interactions were found. Removed: 4278.
+You can use --leave_duplicate_interactions to disable this behaviour.
+final_regressor = model.vw
+Num weight bits = 28
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = /data-fast/congresstweets/data_2017-2021
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+1.000000 1.000000            1            1.0   1.0000  -1.0000      253
+0.500000 0.000000            2            2.0   1.0000   1.0000      300
+0.250000 0.000000            4            4.0   1.0000   1.0000      231
+0.375000 0.500000            8            8.0   1.0000   1.0000      253
+0.375000 0.375000           16           16.0   1.0000   1.0000      378
+0.312500 0.250000           32           32.0   1.0000   1.0000      406
+0.203125 0.093750           64           64.0   1.0000   1.0000      276
+0.195312 0.187500          128          128.0  -1.0000   1.0000      231
+0.167969 0.140625          256          256.0   1.0000   1.0000     1953
+0.117188 0.066406          512          512.0   1.0000   1.0000       55
+0.155273 0.193359         1024         1024.0  -1.0000   1.0000      253
+0.145508 0.135742         2048         2048.0   1.0000   1.0000     2016
+0.135010 0.124512         4096         4096.0  -1.0000  -1.0000      153
+0.116943 0.098877         8192         8192.0   1.0000   1.0000      351
+0.103821 0.090698        16384        16384.0   1.0000   1.0000      210
+0.081940 0.060059        32768        32768.0   1.0000   1.0000     4095
+0.068466 0.054993        65536        65536.0   1.0000   1.0000     1830
+0.066452 0.064438       131072       131072.0   1.0000   1.0000     4950
+
+finished run
+number of examples per pass = 134246
+passes used = 1
+weighted example sum = 134246.000000
+weighted label sum = 26890.000000
+average loss = 0.066482
+best constant = 0.406098
+best constant's loss = 0.672950
+total feature number = 186580443
+
+$ vw -d /data-fast/congresstweets/data_2022 -i model.vw -t --binary
+creating quadratic features for pairs: ::
+WARNING: duplicate namespace interactions were found. Removed: 4278.
+You can use --leave_duplicate_interactions to disable this behaviour.
+only testing
+Num weight bits = 28
+learning rate = 0.5
+initial_t = 0
+power_t = 0.5
+using no cache
+Reading datafile = /data-fast/congresstweets/data_2022
+num sources = 1
+average  since         example        example  current  current  current
+loss     last          counter         weight    label  predict features
+0.000000 0.000000            1            1.0  -1.0000  -1.0000      666
+0.000000 0.000000            2            2.0   1.0000   1.0000      153
+0.000000 0.000000            4            4.0   1.0000   1.0000     1485
+0.000000 0.000000            8            8.0   1.0000   1.0000     1711
+0.125000 0.250000           16           16.0  -1.0000   1.0000     3741
+0.093750 0.062500           32           32.0  -1.0000   1.0000     1081
+0.078125 0.062500           64           64.0  -1.0000  -1.0000        6
+0.070312 0.062500          128          128.0  -1.0000  -1.0000       91
+0.078125 0.085938          256          256.0   1.0000   1.0000     5565
+0.074219 0.070312          512          512.0  -1.0000  -1.0000     1596
+0.066406 0.058594         1024         1024.0   1.0000  -1.0000     2211
+0.062500 0.058594         2048         2048.0  -1.0000  -1.0000      378
+0.072266 0.082031         4096         4096.0  -1.0000   1.0000       21
+0.074219 0.076172         8192         8192.0   1.0000   1.0000     1035
+0.076965 0.079712        16384        16384.0  -1.0000  -1.0000      378
+
+finished run
+number of examples per pass = 20696
+passes used = 1
+weighted example sum = 20696.000000
+weighted label sum = -3240.000000
+average loss = 0.077648
+best constant = -0.156552
+best constant's loss = 0.975491
+total feature number = 28591285
